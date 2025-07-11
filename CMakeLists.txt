@@ -6,13 +6,13 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 # find dependencies
-find_package(ament_cmake REQUIRED)
+find_package(ament_cmake REQUIRED)                #ROS2 package dependency for CMake packages 
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
-find_package(rosidl_default_generators REQUIRED)
+find_package(rosidl_default_generators REQUIRED)  #Find ROS 2 interface generation tools
 
-rosidl_generate_interfaces(${PROJECT_NAME}
+rosidl_generate_interfaces(${PROJECT_NAME}        #Generate interface code
   "srv/Homing.srv"
 )
 
@@ -28,5 +28,5 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-ament_export_dependencies(rosidl_default_runtime)
+ament_export_dependencies(rosidl_default_runtime)   #make generated interface available to other packages
 ament_package()
